@@ -2,7 +2,7 @@
 // import org.python.Dependency
 // import org.python.SonarQube
 import org.generic.Checkout
-//import org.generic.Gitleaks
+import org.generic.Gitleaks
 //import org.generic.Trivyinstaller
 
 
