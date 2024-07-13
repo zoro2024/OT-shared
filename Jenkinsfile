@@ -1,4 +1,4 @@
-@Library('shared-lib') _
+@Library('shared-libot') _
 
 pipeline {
     agent any
@@ -7,14 +7,21 @@ pipeline {
         stage('git checkout') {
             steps {
                 script {
-                    attendance.checkoutgit('https://github.com/OT-MICROSERVICES/attendance-api.git', 'main')
+                    attendance.checkoutgit('https://github.com/OT-MICROSERVICES/attendance-api.git', 'main', 'github-token')
                 }
             }
         }
-        stage('Hello world') {
+        stage('Install Gitleaks and run Cred scanning') {
             steps {
                 script {
-                    attendance.helloworld()
+                    attendance.gitleaks()
+                }
+            }
+        }
+        stage('Install trivy and run License scanning') {
+            steps {
+                script {
+                    attendance.trivyinstaller('https://github.com/OT-MICROSERVICES/attendance-api.git')
                 }
             }
         }

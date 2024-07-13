@@ -1,21 +1,22 @@
 // import org.python.CoveragePython
 // import org.python.Dependency
 // import org.python.SonarQube
-// import org.python.UnitTesting
-import org.python.HelloWorld
-import org.python.Checkout
+import org.generic.Checkout
+import org.generic.Gitleaks
+import org.generic.Trivyinstaller
 
-def checkoutgit(String gitUrl, String branch = 'main') {
-    new Checkout().call(gitUrl, branch)
+
+def checkoutgit(String gitUrl, String branch = 'main', String credentialsId) {
+    new Checkout().call(gitUrl, branch, credentialsId)
 }
 
- def helloworld() {
-     new HelloWorld().call()
+ def gitleaks() {
+     new Gitleaks().call()
  }
 
-// def callDependency() {
-//     new Dependency().call()
-// }
+def trivyinstaller(String repoUrl) {
+     new Trivyinstaller().call(repoUrl)
+ }
 
 // def callSonarqube() {
 //     new UnitTesting().call()
