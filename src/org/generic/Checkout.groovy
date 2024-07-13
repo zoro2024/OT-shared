@@ -1,4 +1,4 @@
-package org.python
+package org.generic
 
 def call(String gitUrl, String branch = 'main') {
     stage('Checkout Git') {
