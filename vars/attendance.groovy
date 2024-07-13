@@ -6,8 +6,8 @@ import org.generic.Gitleaks
 import org.generic.Trivyinstaller
 
 
-def checkoutgit(String gitUrl, String branch = 'main', String credentialsId) {
-    new Checkout().call(gitUrl, branch, credentialsId)
+def checkoutgit(String gitUrl, String branch = 'main') {
+    new Checkout().call(gitUrl, branch)
 }
 
  def gitleaks() {
