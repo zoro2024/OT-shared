@@ -1,4 +1,4 @@
-package org.java
+package org.generic
 
 def call(String repoUrl) {
     sh """
