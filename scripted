@@ -4,15 +4,14 @@ node {
     stage('git checkout') {
         commongeneric.checkoutgit('https://github.com/OT-MICROSERVICES/attendance-api.git', 'main')
     }
-    
-    stage('Install Gitleaks and run Cred scanning') {
+    stage('Cred scanning') {
         commongeneric.gitleaks()
+        archiveArtifacts artifacts: 'CredScanReport'
     }
-    
-    stage('Install trivy and run License scanning') {
+    stage('License scanning') {
         commongeneric.trivyinstaller('https://github.com/OT-MICROSERVICES/attendance-api.git')
+        archiveArtifacts artifacts: 'trivy-license-report.json'
     }
-    
     stage('Notification') {
         commongeneric.notification()
     }
