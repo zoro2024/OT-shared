@@ -3,7 +3,7 @@
 // import org.python.SonarQube
 import org.generic.Checkout
 import org.generic.Gitleaks
-import org.generic.Trivyinstaller
+import org.generic.TrivyInstaller
 
 
 def checkoutgit(String gitUrl, String branch = 'main') {
@@ -15,7 +15,7 @@ def checkoutgit(String gitUrl, String branch = 'main') {
  }
 
 def trivyinstaller(String repoUrl) {
-     new Trivyinstaller().call(repoUrl)
+     new TrivyInstaller().call(repoUrl)
  }
 
 // def callSonarqube() {
