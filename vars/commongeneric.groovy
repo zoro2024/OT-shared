@@ -10,13 +10,13 @@ def checkoutgit(String gitUrl, String branch = 'main') {
     new Checkout().call(gitUrl, branch)
 }
 
- def gitleaks() {
-     new Gitleaks().call()
- }
+//  def gitleaks() {
+//      new Gitleaks().call()
+//  }
 
-def trivyinstaller(String repoUrl) {
-     new Trivyinstaller().call(repoUrl)
- }
+// def trivyinstaller(String repoUrl) {
+//      new Trivyinstaller().call(repoUrl)
+//  }
 
 // def callSonarqube() {
 //     new UnitTesting().call()
