@@ -1,14 +1,8 @@
-package org.generic
+package org.java
 
-def installTrivy(String repoUrl = '') {
-    // Install Trivy for license scanning
+def call(String repoUrl) {
+    // Using triple quotes for multi-line shell script
     sh '''
-        sudo apt-get install wget apt-transport-https gnupg lsb-release -y
-        wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
-        echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
-        sudo apt-get update
-        sudo apt-get install trivy -y
+        trivy ${repoUrl} --format json -o trivy-license-report.json
     '''
-        def trivyCommand = "trivy repo ${repoUrl} --format json -o trivy-license-report.json"
-        sh "${trivyCommand}"
 }
