@@ -1,0 +1,19 @@
+@Library('shared-libot') _
+
+node {
+    stage('git checkout') {
+        commongeneric.checkoutgit('https://github.com/OT-MICROSERVICES/attendance-api.git', 'main')
+    }
+    
+    stage('Install Gitleaks and run Cred scanning') {
+        commongeneric.gitleaks()
+    }
+    
+    stage('Install trivy and run License scanning') {
+        commongeneric.trivyinstaller('https://github.com/OT-MICROSERVICES/attendance-api.git')
+    }
+    
+    stage('Notification') {
+        commongeneric.notification()
+    }
+}
