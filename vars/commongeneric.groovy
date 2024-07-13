@@ -15,7 +15,7 @@ def trivyinstaller(String repoUrl) {
      new Trivyinstaller().call(repoUrl)
  }
 
-def notification () {
+def notification() {
     new Notification().call()
 }
 
