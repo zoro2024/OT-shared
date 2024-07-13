@@ -25,5 +25,12 @@ pipeline {
                 }
             }
         }
+        stage('Notification') {
+            steps {
+                script {
+                    commongeneric.notification()
+                }
+            }
+        }
     }
 }
