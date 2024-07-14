@@ -2,7 +2,7 @@
 
 node {
     stage('git checkout') {
-        commongeneric.checkoutgit('https://github.com/OT-MICROSERVICES/attendance-api.git', 'main')
+        commongeneric.checkout('https://github.com/OT-MICROSERVICES/attendance-api.git', 'main', 'github-token')
     }
     stage('Cred scanning') {
         commongeneric.gitleaks()
