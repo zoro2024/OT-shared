@@ -12,7 +12,7 @@ def checkout(String url, String creds, String branch = 'main') {
  }
 
 def trivyinstaller(String repoUrl) {
-     new Trivyinstaller().call(repoUrl)
+     new Trivyinstaller().call(url)
  }
 
 def notification() {
