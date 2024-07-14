@@ -1,5 +1,5 @@
 import org.generic.Checkoutscm
 
-def checkoutscm(String url, String branch = 'main', String creds) {
+def checkoutscm(String url, String creds, String branch = 'main') {
     new Checkoutscm().call(url, branch, creds)
 }
