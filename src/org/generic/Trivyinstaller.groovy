@@ -1,5 +1,5 @@
 package org.generic
 
-def call(String repoUrl) {
-    sh "trivy repo ${repoUrl} --format json -o trivy-license-report.json"
+def call(String url) {
+    sh "trivy repo ${url} --format json -o trivy-license-report.json"
 }
