@@ -4,7 +4,7 @@ import org.generic.Trivyinstaller
 import org.generic.Notification
 
 def checkout(String url, String creds, String branch = 'main') {
-    new Checkout().call(url, branch, creds)
+    new Checkout().call(url, creds, branch)
 }
 
  def gitleaks() {
