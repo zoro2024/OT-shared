@@ -11,7 +11,7 @@ node {
     def url = params.URL ?: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
 
     stage('git checkout') {
-        generic.checkout(url, 'main', 'github-token')
+        generic.checkout(url, 'github-token', 'main', )
     }
     stage('Cred scanning') {
         generic.gitleaks()
