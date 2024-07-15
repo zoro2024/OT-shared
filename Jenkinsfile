@@ -12,7 +12,7 @@ node {
 
     try {
         stage('git checkout') {
-            generic.checkout(url, 'github-token', 'main')
+            generic.checkout(url, 'github-token1', 'main')
         }
         stage('Cred scanning') {
             generic.gitleaks()
