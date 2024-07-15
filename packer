@@ -12,7 +12,7 @@ pipeline {
         stage('Build AMI') {
             steps {
                 script {
-                    generic.buildami(my_ami)
+                    generic.buildami(ami_name)
                 }
             }
         }
