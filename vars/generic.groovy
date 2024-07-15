@@ -20,6 +20,6 @@ def checkout(String url, String creds, String branch = 'main') {
 //     new Notification().call()
 // }
 
-def buildami() {
+def buildami(String ami_name) {
     new Buildami().call(ami_name)
 }
