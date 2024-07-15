@@ -21,5 +21,5 @@ def checkout(String url, String creds, String branch = 'main') {
 // }
 
 def buildami() {
-    new Buildami().call()
+    new Buildami().call(ami_name)
 }
