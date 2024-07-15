@@ -14,7 +14,7 @@ pipeline {
         stage('Build AMI') {
             steps {
                 script {
-                    CommonGeneric.buildami()
+                    generic.buildami()
                 }
             }
         }
