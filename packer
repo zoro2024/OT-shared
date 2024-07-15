@@ -1,4 +1,4 @@
-@Library('shared-new') _  // Replace 'shared-library-name' with the actual name of your shared library
+@Library('shared-libot') _  // Replace 'shared-library-name' with the actual name of your shared library
 
 
 pipeline {
