@@ -1,19 +1,22 @@
-@Library('shared-libot') _  // Replace 'shared-library-name' with the actual name of your shared library
-
+@Library('shared-libot') _
 
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'AMI_NAME', defaultValue: 'my-ami-name', description: 'Name of the AMI to be created')
+    }
+
     environment {
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id') // Assuming you have set these credentials in Jenkins
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key') // Assuming you have set these credentials in Jenkins
-        AMI_NAME = 'my-ami-name'
     }
+
     stages {
         stage('Build AMI') {
             steps {
                 script {
-                    generic.buildami(env.AMI_NAME)
+                    generic.buildami(params.AMI_NAME)
                 }
             }
         }
