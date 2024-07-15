@@ -1,10 +1,10 @@
 package org.generic
 
-def call(String packerFile) {
+def call() {
     stage('Build ami') {
       script {
-        sh "packer init ${env.PACKER_TEMPLATE}"
-        sh "packer build -var 'ami_name=${params.AMI_NAME}' ${env.PACKER_TEMPLATE}"
+        sh "packer init packer.pkr.hcl"
+        sh "packer build packer.pkr.hcl"
       }    
     }
 }
