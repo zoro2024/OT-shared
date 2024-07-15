@@ -7,12 +7,13 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id') // Assuming you have set these credentials in Jenkins
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key') // Assuming you have set these credentials in Jenkins
+        AMI_NAME = 'my-ami-name'
     }
     stages {
         stage('Build AMI') {
             steps {
                 script {
-                    generic.buildami(ami_name)
+                    generic.buildami(env.AMI_NAME)
                 }
             }
         }
