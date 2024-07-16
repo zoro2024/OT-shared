@@ -1,0 +1,19 @@
+@Library('shared-libot') _
+
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    generic.checkout('https://github.com/OT-MICROSERVICES/attendance-api.git', 'github-token', 'main')
+                }
+            }
+        }
+        stage('Run Gitleaks') {
+            steps {
+                script {
+                    generic.gitleaks()
+                }
+            }
+        }
