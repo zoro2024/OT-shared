@@ -1,8 +1,8 @@
 import org.generic.Checkout
 import org.generic.Gitleaks
-// import org.generic.Trivyinstaller
-// import org.generic.Notification
-// import org.generic.Buildami
+import org.generic.Trivyinstaller
+import org.generic.Notification
+import org.generic.Buildami
 import org.generic.Signoff
 
 def checkout(String url, String creds, String branch = 'main') {
@@ -13,17 +13,17 @@ def checkout(String url, String creds, String branch = 'main') {
      new Gitleaks().call()
  }
 
-// def trivyinstaller(String repoUrl) {
-//      new Trivyinstaller().call(url)
-//  }
+def trivyinstaller(String repoUrl) {
+     new Trivyinstaller().call(url)
+ }
 
-// def notification() {
-//     new Notification().call()
-// }
+def notification() {
+    new Notification().call()
+}
 
-// def buildami(String ami_name) {
-//     new Buildami().call(ami_name)
-// }
+def buildami(String ami_name) {
+    new Buildami().call(ami_name)
+}
 
 import org.generic.Signoff
 
