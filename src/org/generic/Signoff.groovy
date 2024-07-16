@@ -1,7 +1,7 @@
 package org.generic
 
 
-def call(String useremail, String username, String creds, String url, String branch) {
+def call(String useremail, String username, String creds, String branch) {
     stage('configuring git') {
         withCredentials([usernamePassword(credentialsId: creds, passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
             sh """
