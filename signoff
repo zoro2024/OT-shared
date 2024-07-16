@@ -20,7 +20,7 @@ pipeline {
         stage('Signoff') {
             steps {
                 script {
-                    generic.signoff('akshitkapil.1111@gmail.com', 'zoro2024', 'github-token1', 'https://github.com/mygurkulam-p9/Attendence-API.git', 'github.com/mygurkulam-p9/Attendence-API.git', 'main')
+                    generic.signoff('akshitkapil.1111@gmail.com', 'zoro2024', 'github-token1', 'https://github.com/mygurkulam-p9/Attendence-API.git', 'main')
                 }
             }
         }
