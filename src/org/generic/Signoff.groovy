@@ -1,13 +1,13 @@
 package org.generic
 
 
-def call(String useremail, String username, String creds, String pushurl, String branch) {
+def call(String useremail, String username, String creds, String url, String branch) {
     stage('configuring git') {
         withCredentials([usernamePassword(credentialsId: creds, passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
             sh """
             git config user.email '${useremail}'
             git config user.name '${username}'
-            git remote set-url origin https://${username}:${PASSWORD}@${pushurl}
+            git remote set-url origin https://${username}:${PASSWORD}@github.com/mygurkulam-p9/Attendence-API.git
             git add CredScanReport
             git commit --signoff -m "Cred report"
             git push origin ${branch}
