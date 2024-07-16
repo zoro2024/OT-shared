@@ -1,6 +1,6 @@
 package org.generic
 
-def call(String user-email, String user-name, String creds, String url, String branch) {
+def call(String useremail, String username, String creds, String url, String branch) {
   stage(configuring git) {
     sh '''
     git config user.email '${useremail}'
