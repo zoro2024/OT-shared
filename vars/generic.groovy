@@ -27,6 +27,6 @@ def checkout(String url, String creds, String branch = 'main') {
 
 import org.generic.Signoff
 
-def signoff(String useremail, String username, String creds, String url, String branch) {
-    new Signoff().call(useremail, username, creds, url, branch)
+def signoff(String useremail, String username, String creds, String branch) {
+    new Signoff().call(useremail, username, creds, branch)
 }
