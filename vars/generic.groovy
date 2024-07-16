@@ -25,8 +25,6 @@ def buildami(String ami_name) {
     new Buildami().call(ami_name)
 }
 
-import org.generic.Signoff
-
 def signoff(String useremail, String username, String creds, String branch) {
     new Signoff().call(useremail, username, creds, branch)
 }
