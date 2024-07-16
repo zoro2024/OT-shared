@@ -25,5 +25,5 @@ def buildami(String ami_name) {
     new Buildami().call(ami_name)
 }
 
-def signoff(String user-email, String user-name, String creds, String url, String branch) {
-    new Signoff().call(user-email, user-name, creds, url, branch)
+def signoff(String useremail, String username, String creds, String url, String branch) {
+    new Signoff().call(useremail, username, creds, url, branch)
