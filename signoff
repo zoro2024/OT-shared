@@ -4,11 +4,9 @@ node {
     stage('Checkout') {
         generic.checkout('https://github.com/mygurkulam-p9/Attendence-API.git', 'github-token1', 'main')
     }
-
     stage('Run Gitleaks') {
         generic.gitleaks()
     }
-
     stage('Signoff') {
         generic.signoff('akshitkapil.1111@gmail.com', 'zoro2024', 'github-token1', 'main')
     }
