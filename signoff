@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    generic.checkout('https://github.com/OT-MICROSERVICES/attendance-api.git', 'github-token1', 'main')
+                    generic.checkout('https://github.com/mygurkulam-p9/Attendence-API.git', 'github-token1', 'main')
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         stage('Signoff') {
             steps {
                 script {
-                    generic.signoff()
+                    generic.signoff('akshitkapil.1111@gmail.com', 'zoro2024', 'github-token', 'https://github.com/mygurkulam-p9/Attendence-API.git', 'main',  )
                 }
             }
         }
