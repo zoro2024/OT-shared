@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    generic.checkout('https://github.com/OT-MICROSERVICES/attendance-api.git', 'github-token', 'main')
+                    generic.checkout('https://github.com/OT-MICROSERVICES/attendance-api.git', 'github-token1', 'main')
                 }
             }
         }
@@ -17,3 +17,12 @@ pipeline {
                 }
             }
         }
+        stage('Signoff') {
+            steps {
+                script {
+                    generic.signoff()
+                }
+            }
+        }
+    }
+}
