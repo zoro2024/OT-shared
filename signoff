@@ -2,13 +2,14 @@
 
 properties([
     parameters([
-        string(name: 'EMAIL', defaultValue: 'akshitkapil.1111@gmail.com', description: 'Email address for signoff')
+        string(name: 'EMAIL', defaultValue: 'akshitkapil.1111@gmail.com', description: 'Email address for signoff'),
+        string(name: 'REPO_URL', defaultValue: 'https://github.com/mygurkulam-p9/Attendence-API.git', description: 'Repository URL')
     ])
 ])
 
 node {
     stage('Checkout') {
-        generic.checkout('https://github.com/mygurkulam-p9/Attendence-API.git', 'github-token1', 'main')
+        generic.checkout(params.REPO_URL, 'github-token1', 'main')
     }
     stage('Run Gitleaks') {
         generic.gitleaks()
