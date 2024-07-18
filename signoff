@@ -3,7 +3,8 @@
 properties([
     parameters([
         string(name: 'EMAIL', defaultValue: 'akshitkapil.1111@gmail.com', description: 'Email address for signoff'),
-        string(name: 'REPO_URL', defaultValue: 'https://github.com/mygurkulam-p9/Attendence-API.git', description: 'Repository URL')
+        string(name: 'REPO_URL', defaultValue: 'https://github.com/mygurkulam-p9/Attendence-API.git', description: 'Repository URL'),
+        string(name: 'GITHUB_USERNAME', defaultValue: 'zoro2024', description: 'GitHub Username')
     ])
 ])
 
@@ -15,6 +16,6 @@ node {
         generic.gitleaks()
     }
     stage('Signoff') {
-        generic.signoff(params.EMAIL, 'zoro2024', 'github-token1', 'main')
+        generic.signoff(params.EMAIL, params.GITHUB_USERNAME, 'github-token1', 'main')
     }
 }
