@@ -1,5 +1,11 @@
 @Library('shared-libot') _
 
+properties([
+    parameters([
+        string(name: 'EMAIL', defaultValue: 'akshitkapil.1111@gmail.com', description: 'Email address for signoff')
+    ])
+])
+
 node {
     stage('Checkout') {
         generic.checkout('https://github.com/mygurkulam-p9/Attendence-API.git', 'github-token1', 'main')
@@ -8,6 +14,6 @@ node {
         generic.gitleaks()
     }
     stage('Signoff') {
-        generic.signoff('akshitkapil.1111@gmail.com', 'zoro2024', 'github-token1', 'main')
+        generic.signoff(params.EMAIL, 'zoro2024', 'github-token1', 'main')
     }
 }
