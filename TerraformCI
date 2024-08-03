@@ -16,7 +16,7 @@ node {
         generic.checkout(url, 'github-token1', branch)
     }
     stage('Terraform Init') {
-        terraform.terraforminit('./')
+        terraform.terraforminit('Autoscaling')
     }
 }
 
