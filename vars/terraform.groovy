@@ -5,6 +5,6 @@ def terraforminit(String path) {
     new Terraforminit().call(path)
 }
 
-def terraformformat(String path) {
-    new Terraformformat().call(path)
+def terraformformat() {
+    new Terraformformat().call()
 }
