@@ -3,6 +3,10 @@
 pipeline {
     agent any
 
+    tools {
+        terraform 'terraform'
+    }
+
     parameters {
         string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout')
         string(name: 'BRANCH', defaultValue: 'AutoScaling', description: 'Branch to checkout')
