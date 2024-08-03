@@ -1,27 +1,28 @@
 @Library('shared-libot') _
 
-tools {
-    terraform 'terraform'
-}
-
-properties([
-    parameters([
-        string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout'),
-        string(name: 'BRANCH', defaultValue: 'AutoScaling', description: 'Branch to checkout')
-    ])
-])
-
 node {
-    def url = params.URL ?: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
-    def branch = params.BRANCH ?: 'main'
+    def terraformHome = tool name: 'terraform', type: 'Terraform'
+
+    def url = params.URL ?: 'https://github.com/mygurkulam-p9/Terrform_Module.git'
+    def branch = params.BRANCH ?: 'AutoScaling'
+
+    properties([
+        parameters([
+            string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout'),
+            string(name: 'BRANCH', defaultValue: 'AutoScaling', description: 'Branch to checkout')
+        ])
+    ])
 
     stage('Git Checkout') {
         generic.checkout(url, 'github-token1', branch)
     }
+
     stage('Terraform Init') {
-        terraform.terraforminit('Autoscaling')
+        sh "${terraformHome}/terraform init Autoscaling"
     }
+
     stage('Terraform Format') {
-        terraform.terraformformat('Autoscaling')
+        sh "${terraformHome}/terraform fmt Autoscaling"
     }
 }
+
