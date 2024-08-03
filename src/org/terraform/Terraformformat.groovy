@@ -1,6 +1,5 @@
 package org.terraform
 
-def call(String path) {
+def call() {
     sh "terraform fmt"
-    sh "ls -l"
 }
