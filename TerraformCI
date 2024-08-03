@@ -12,12 +12,15 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'AutoScaling', description: 'Branch to checkout')
     }
 
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('aws_access_key_id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
+    }
+
     stages {
         stage('Git Checkout') {
             steps {
                 script {
-                    def url = params.URL ?: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
-                    def branch = params.BRANCH ?: 'main'
                     generic.checkout(url, 'github-token1', branch)
                 }
             }
