@@ -2,7 +2,6 @@ package org.terraform
 
 def call(String path) {
     sh '''
-    cd ${path} && terraform init
-    ls -l
+    cd ${path} && terraform init | ls -l
     '''
 }
