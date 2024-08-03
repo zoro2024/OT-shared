@@ -1,4 +1,4 @@
-@Library('shared-libot')
+@Library('shared-libot') _
 
 properties([
     parameters([
