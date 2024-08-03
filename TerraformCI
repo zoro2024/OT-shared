@@ -18,5 +18,8 @@ node {
     stage('Terraform Init') {
         terraform.terraforminit('Autoscaling')
     }
+    stage('Terraform Format') {
+        terraform.terraformformat('Autoscaling')
+    }
 }
 
