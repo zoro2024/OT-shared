@@ -1,9 +1,15 @@
 @Library('shared-libot') _
 
 tools {
-    // Terraform plugin installation
     terraform 'terraform'
 }
+
+properties([
+    parameters([
+        string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout'),
+        string(name: 'BRANCH', defaultValue: 'AutoScaling', description: 'Branch to checkout')
+    ])
+])
 
 node {
     def url = params.URL ?: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
