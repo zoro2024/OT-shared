@@ -1,0 +1,22 @@
+@Library('shared-libot') _   // Load the shared library
+
+properties([
+    parameters([
+        string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout'),
+        string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to checkout')
+    ])
+])
+
+node {
+    // Define parameters
+    def url = params.URL ?: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+    def branch = params.BRANCH ?: 'main'
+
+    stage('Git Checkout') {
+        generic.checkout(url, 'github-token1', branch)
+    }
+    stage('Terraform Init') {
+        terraform.terraforminit('./')
+    }
+}
+
