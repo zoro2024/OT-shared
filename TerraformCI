@@ -1,4 +1,10 @@
-@Library('shared-libot') _   // Load the shared library
+@Library('shared-libot')
+
+    tools {
+        // Terraform plugin installation
+        terraform 'terraform'
+    }
+
 
 properties([
     parameters([
