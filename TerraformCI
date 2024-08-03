@@ -1,37 +1,29 @@
 @Library('shared-libot') _
 
-pipeline {
-    agent any
+tools {
+    // Specify the tool versions you want to use
+    terraform 'terraform'
+}
 
-    tools {
-        terraform 'terraform'
-    }
-
-    parameters {
-        string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout')
+properties([
+    parameters([
+        string(name: 'URL', defaultValue: 'https://github.com/mygurkulam-p9/Terrform_Module.git', description: 'Repository URL for checkout'),
         string(name: 'BRANCH', defaultValue: 'AutoScaling', description: 'Branch to checkout')
+    ])
+])
+
+node {
+    def url = params.URL ?: 'https://github.com/mygurkulam-p9/Terrform_Module.git'
+    def branch = params.BRANCH ?: 'AutoScaling'
+
+    stage('Git Checkout') {
+        generic.checkout(url, 'github-token1', branch)
     }
-
-    stages {
-        stage('Git Checkout') {
-            steps {
-                script {
-                    generic.checkout(params.URL, 'github-token1', params.BRANCH)
-                }
-            }
-        }
-
-        stage('Terraform Init') {
-            steps {
-                sh "terraform init Autoscaling"
-            }
-        }
-
-        stage('Terraform Format') {
-            steps {
-                sh "terraform fmt Autoscaling"
-            }
-        }
+    stage('Terraform Init') {
+        terraform.terraformInit('Autoscaling')
+    }
+    stage('Terraform Format') {
+        terraform.terraformFormat('Autoscaling')
     }
 }
 
