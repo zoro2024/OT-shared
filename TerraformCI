@@ -1,9 +1,4 @@
-@Library('shared-libot') _
-
-tools {
-    // Specify the tool versions you want to use
-    terraform 'terraform'
-}
+@Library('shared-libot')
 
 properties([
     parameters([
@@ -13,17 +8,18 @@ properties([
 ])
 
 node {
-    def url = params.URL ?: 'https://github.com/mygurkulam-p9/Terrform_Module.git'
-    def branch = params.BRANCH ?: 'AutoScaling'
+    // Define parameters
+    def url = params.URL ?: 'https://github.com/OT-MICROSERVICES/attendance-api.git'
+    def branch = params.BRANCH ?: 'main'
 
     stage('Git Checkout') {
         generic.checkout(url, 'github-token1', branch)
     }
     stage('Terraform Init') {
-        terraform.terraformInit('Autoscaling')
+        terraform.terraforminit('Autoscaling')
     }
     stage('Terraform Format') {
-        terraform.terraformFormat('Autoscaling')
+        terraform.terraformformat('Autoscaling')
     }
 }
 
