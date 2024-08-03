@@ -22,7 +22,13 @@ pipeline {
                 }
             }
         }
-
+        stage('Cred scanning') {
+            steps {
+                script {
+                    generic.gitleaks()
+                }
+            }
+        }
         stage('Terraform Init') {
             steps {
                 script {
@@ -30,11 +36,17 @@ pipeline {
                 }
             }
         }
-
         stage('Terraform Format') {
             steps {
                 script {
                     terraform.terraformformat()
+                }
+            }
+        }
+        stage('Terraform Plan') {
+            steps {
+                script {
+                    terraform.terraformplan()
                 }
             }
         }
