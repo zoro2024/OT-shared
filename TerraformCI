@@ -34,7 +34,7 @@ pipeline {
         stage('Terraform Format') {
             steps {
                 script {
-                    terraform.terraformformat('Autoscaling')
+                    terraform.terraformformat()
                 }
             }
         }
